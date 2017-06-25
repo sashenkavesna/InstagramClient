@@ -1,26 +1,24 @@
-package com.epam.androidlab.instagramclient;
+package com.epam.androidlab.instagramclient.data;
 
 
 import com.google.gson.annotations.SerializedName;
 
 public class User {
+
 //    private ArrayList<Media> publications;
 
   //  private ArrayList<User> followers;
     //private ArrayList<User> following;
 
+    //TODO ADD OTHER INFO
     private int id;
     @SerializedName("full_name")
     private  String fullName;
-    private String username;
-    private String bio;
+    @SerializedName("username")
+    private String userName;
     @SerializedName("profile_picture")
     private String profilePicture;
 
-
-    public String getBio() {
-        return bio;
-    }
 
     public String getFullName() {
         return fullName;
@@ -34,7 +32,7 @@ public class User {
         return profilePicture;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 }

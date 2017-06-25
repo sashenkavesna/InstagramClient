@@ -1,6 +1,10 @@
 package com.epam.androidlab.instagramclient;
 
 
+import com.epam.androidlab.instagramclient.data.User;
+import com.epam.androidlab.instagramclient.responses.RelationshipResponse;
+import com.epam.androidlab.instagramclient.responses.SessionResponse;
+
 import java.util.List;
 
 import retrofit2.Call;
@@ -24,13 +28,13 @@ public interface InstaClientAPI {
             @Field("code") String codeForToken
     );
 
-    @GET("v1/users/self/media/recent")
+    /*@GET("v1/users/self/media/recent")
     Call<MediaResponse> getCurrentUsersRecentMedia(
             @Query("access_token") String accessToken,
             @Query("max_id") int maxId,
             @Query("min_id") int minId,
             @Query("count") int countOfMedia
-    );
+    );*/
 
     @GET("v1/users/self/follows")
     Call<List<User>> getCurrentUsersFollows(

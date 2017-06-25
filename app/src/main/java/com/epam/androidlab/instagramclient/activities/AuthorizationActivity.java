@@ -1,4 +1,4 @@
-package com.epam.androidlab.instagramclient;
+package com.epam.androidlab.instagramclient.activities;
 
 
 import android.app.Activity;
@@ -8,6 +8,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
+import com.epam.androidlab.instagramclient.Extras;
+import com.epam.androidlab.instagramclient.R;
+import com.epam.androidlab.instagramclient.ServerConnector;
 
 public class AuthorizationActivity extends AppCompatActivity {
     private Activity context;
@@ -40,6 +44,5 @@ public class AuthorizationActivity extends AppCompatActivity {
                 context.finish();
             }
         }
-
     }
 }

@@ -1,4 +1,4 @@
-package com.epam.androidlab.instagramclient;
+package com.epam.androidlab.instagramclient.adapters;
 
 
 import android.content.Context;
@@ -9,7 +9,7 @@ import android.widget.BaseAdapter;
 public class MediaAdapter extends BaseAdapter {
     private Context context;
 
-    MediaAdapter(Context context) {
+    public MediaAdapter(Context context) {
         this.context = context;
     }
 
