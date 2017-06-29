@@ -1,9 +1,11 @@
 package com.epam.androidlab.instagramclient;
 
 
-import com.epam.androidlab.instagramclient.data.User;
-import com.epam.androidlab.instagramclient.responses.RelationshipResponse;
-import com.epam.androidlab.instagramclient.responses.SessionResponse;
+import com.epam.androidlab.instagramclient.entity.User;
+import com.epam.androidlab.instagramclient.entity.responses.MediaResponse;
+import com.epam.androidlab.instagramclient.entity.responses.RelationshipResponse;
+import com.epam.androidlab.instagramclient.entity.responses.TokenResponse;
+import com.epam.androidlab.instagramclient.entity.responses.UserResponse;
 
 import java.util.List;
 
@@ -18,9 +20,9 @@ import retrofit2.http.Query;
 
 public interface InstaClientAPI {
 
-   @FormUrlEncoded
-   @POST("/oauth/access_token")
-    Call<SessionResponse> postSessionData(
+    @FormUrlEncoded
+    @POST("oauth/access_token")
+    Call<TokenResponse> postSessionData(
             @Field("client_id") String clientId,
             @Field("client_secret") String clientSecret,
             @Field("grant_type") String authCode,
@@ -28,13 +30,18 @@ public interface InstaClientAPI {
             @Field("code") String codeForToken
     );
 
-    /*@GET("v1/users/self/media/recent")
+    @GET("v1/users/self/media/recent")
     Call<MediaResponse> getCurrentUsersRecentMedia(
             @Query("access_token") String accessToken,
             @Query("max_id") int maxId,
             @Query("min_id") int minId,
             @Query("count") int countOfMedia
-    );*/
+    );
+
+    @GET("v1/users/self/")
+    Call<UserResponse> getCurrentUser(
+            @Query("access_token") String accessToken
+    );
 
     @GET("v1/users/self/follows")
     Call<List<User>> getCurrentUsersFollows(

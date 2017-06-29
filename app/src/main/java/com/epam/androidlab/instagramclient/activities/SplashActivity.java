@@ -8,12 +8,9 @@ import android.widget.ProgressBar;
 
 import com.epam.androidlab.instagramclient.R;
 import com.epam.androidlab.instagramclient.ServerConnector;
-import com.epam.androidlab.instagramclient.database.DBHelper;
-import com.epam.androidlab.instagramclient.managers.SessionResponseManager;
-import com.epam.androidlab.instagramclient.repository.SessionDataRepository;
+import com.epam.androidlab.instagramclient.managers.TokenResponseHandler;
 
 public class SplashActivity extends AppCompatActivity {
-    //  private SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,30 +19,24 @@ public class SplashActivity extends AppCompatActivity {
 
         ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setVisibility(ProgressBar.VISIBLE);
-
-        // sessionManager = new SessionManager(this);
-
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         // if (requestCode == PICK_CONTACT_REQUEST) {
         if (resultCode == RESULT_OK) {
-            DBHelper dbHelper = new DBHelper(this);
-            SessionDataRepository repo = new SessionDataRepository(dbHelper);
-            SessionResponseManager manager = new SessionResponseManager(repo);
+            //  TokenDataRepository repo = new TokenDataRepository();
+            TokenResponseHandler manager = new TokenResponseHandler();
             String code = data.getStringExtra("Code for access token");
             manager.fetchResponse(code);
-
-            // rep.
-            //      sessionManager.storeAccessToken(response.getAccessToken());
         }
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        if (ServerConnector.getSessionManager().getAccessToken() == null) {
+        String token = ServerConnector.getSessionManager().getAccessToken();
+        if (token == null) {
             startActivityForResult(new Intent(this, AuthorizationActivity.class), 1);
         } else {
             startActivity(new Intent(this, ProfileActivity.class));

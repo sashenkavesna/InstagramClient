@@ -6,6 +6,8 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.widget.Toast;
 
+import com.epam.androidlab.instagramclient.database.DBHelper;
+
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -14,11 +16,14 @@ public class ServerConnector extends Application {
     private static ServerConnector serverConnector;
     private static InstaClientAPI clientAPI;
     private static SessionManager sessionManager;
+    private static DBHelper dbHelper;
+
 
     @Override
     public void onCreate() {
         super.onCreate();
         serverConnector = this;
+        dbHelper = new DBHelper(this);
         sessionManager = new SessionManager(this.getApplicationContext());
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
         Retrofit.Builder builder = new Retrofit.Builder()
@@ -30,7 +35,6 @@ public class ServerConnector extends Application {
         clientAPI = retrofit.create(InstaClientAPI.class);
 
     }
-
 
     public void checkConnection() {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -48,8 +52,11 @@ public class ServerConnector extends Application {
         return clientAPI;
     }
 
-
     public static SessionManager getSessionManager() {
         return sessionManager;
+    }
+
+    public static DBHelper getDbHelper() {
+        return dbHelper;
     }
 }

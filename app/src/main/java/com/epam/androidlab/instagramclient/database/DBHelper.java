@@ -11,11 +11,14 @@ public class DBHelper extends SQLiteOpenHelper {
 
     private static final String TEXT_TYPE = " TEXT";
     private static final String SQL_CREATE_USER_TABLE =
-            "CREATE TABLE" + DBContract.UserTable.TABLE_NAME + " (" +
+            "CREATE TABLE " + DBContract.UserTable.TABLE_NAME + " (" +
                     DBContract.UserTable.COLUMN_NAME_ID + " INTEGER PRIMARY KEY," +
                     DBContract.UserTable.COLUMN_NAME_USERNAME + TEXT_TYPE + "," +
                     DBContract.UserTable.COLUMN_NAME_FULLNAME + TEXT_TYPE + "," +
-                    DBContract.UserTable.COLUMN_NAME_PROFILE_PICTURE + TEXT_TYPE +
+                    DBContract.UserTable.COLUMN_NAME_PROFILE_PICTURE + TEXT_TYPE + "," +
+                    DBContract.UserTable.COLUMN_NAME_MEDIA_COUNT + TEXT_TYPE + "," +
+                    DBContract.UserTable.COLUMN_NAME_FOLLOWERS_COUNT + TEXT_TYPE + "," +
+                    DBContract.UserTable.COLUMN_NAME_FOLLOWEDBY_COUNT + TEXT_TYPE +
                     " )";
     private static final String SQL_DELETE_USER =
             "DROP TABLE IF EXISTS " + DBContract.UserTable.TABLE_NAME;

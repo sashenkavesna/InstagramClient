@@ -1,4 +1,4 @@
-package com.epam.androidlab.instagramclient.data;
+package com.epam.androidlab.instagramclient.entity;
 
 
 import java.util.ArrayList;
