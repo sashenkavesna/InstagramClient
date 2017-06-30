@@ -17,4 +17,14 @@ public final class DBContract {
         public static final String COLUMN_NAME_FOLLOWERS_COUNT = "followers_count";
         public static final String COLUMN_NAME_FOLLOWEDBY_COUNT = "followed_by_count";
     }
+
+    public static abstract class MediaTable implements BaseColumns {
+        //TODO: ADD OTHER INFORMATION
+        public static final String TABLE_NAME = "media";
+        public static final String COLUMN_NAME_ID = "id";
+        public static final String COLUMN_NAME_TYPE = "type";
+        public static final String COLUMN_NAME_TIME = "time";
+        public static final String COLUMN_NAME_THUMBNAIL_IMAGE = "thumbnail_image";
+
+    }
 }

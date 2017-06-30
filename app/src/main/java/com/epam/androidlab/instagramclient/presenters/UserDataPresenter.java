@@ -7,10 +7,10 @@ import com.epam.androidlab.instagramclient.fragments.UserInfoFragment;
 
 import java.util.concurrent.ExecutionException;
 
-public class UserInfoManager implements UserInfoPresenter {
+public class UserDataPresenter implements UserInfoPresenter {
     private UserInfoFragment userInfoFragment;
 
-    public UserInfoManager(UserInfoFragment userInfoFragment) {
+    public UserDataPresenter(UserInfoFragment userInfoFragment) {
         this.userInfoFragment = userInfoFragment;
     }
 
@@ -21,7 +21,7 @@ public class UserInfoManager implements UserInfoPresenter {
         User user = new User();
         try {
             user = task.get();
-            //prepare
+            //todo: prepare strings
             userInfoFragment.update(
                     user.getUserName(),
                     user.getProfilePicture(),

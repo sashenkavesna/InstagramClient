@@ -3,10 +3,12 @@ package com.epam.androidlab.instagramclient.repository;
 
 import com.epam.androidlab.instagramclient.ServerConnector;
 import com.epam.androidlab.instagramclient.database.DBHelper;
-import com.epam.androidlab.instagramclient.entity.User;
+import com.epam.androidlab.instagramclient.entity.Media;
 
-public interface UserRepository {
+public interface MediaDataRepository {
     DBHelper dbHelper = ServerConnector.getDbHelper();
-    void insertUser(User user);
-    User readUser();
+
+    void insertMedia(Media media);
+
+    Media readMedia();
 }

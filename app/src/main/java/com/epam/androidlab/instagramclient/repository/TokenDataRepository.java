@@ -5,6 +5,8 @@ import com.epam.androidlab.instagramclient.ServerConnector;
 import com.epam.androidlab.instagramclient.database.DBHelper;
 
 public class TokenDataRepository implements SessionRepository {
+
+    //// TODO: 30.06.2017 delete
     private DBHelper dbHelper = ServerConnector.getDbHelper();
 
     @Override
@@ -16,6 +18,5 @@ public class TokenDataRepository implements SessionRepository {
     public String readAccessToken() {
         return ServerConnector.getSessionManager().getAccessToken();
     }
-
 
 }

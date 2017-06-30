@@ -8,7 +8,7 @@ import android.widget.ProgressBar;
 
 import com.epam.androidlab.instagramclient.R;
 import com.epam.androidlab.instagramclient.ServerConnector;
-import com.epam.androidlab.instagramclient.managers.TokenResponseHandler;
+import com.epam.androidlab.instagramclient.handlers.TokenResponseHandler;
 
 public class SplashActivity extends AppCompatActivity {
 

@@ -5,22 +5,15 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.epam.androidlab.instagramclient.ServerConnector;
 import com.epam.androidlab.instagramclient.database.DBContract;
-import com.epam.androidlab.instagramclient.database.DBHelper;
 import com.epam.androidlab.instagramclient.entity.Counts;
 import com.epam.androidlab.instagramclient.entity.User;
 
 public class UserInfoRepository implements UserRepository {
-    private SQLiteDatabase db;
-
-    public UserInfoRepository() {
-        DBHelper dbHelper = ServerConnector.getDbHelper();
-        db = dbHelper.getReadableDatabase();
-    }
 
     @Override
     public void insertUser(User user) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         Counts counts = user.getCounts();
 
@@ -41,6 +34,7 @@ public class UserInfoRepository implements UserRepository {
 
     @Override
     public User readUser() {
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
 
 
       /*  String[] projection = {

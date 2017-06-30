@@ -12,7 +12,7 @@ import android.widget.GridView;
 import com.epam.androidlab.instagramclient.R;
 import com.epam.androidlab.instagramclient.adapters.MediaAdapter;
 
-public class MediaFragment extends Fragment {
+public class MediaFragment extends Fragment implements MediaView {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,5 +26,10 @@ public class MediaFragment extends Fragment {
         GridView gridView = (GridView) view.findViewById(R.id.gridview);
         gridView.setAdapter(new MediaAdapter(this.getContext()));
         return view;
+    }
+
+    @Override
+    public void update(String imgUrl) {
+
     }
 }

@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.epam.androidlab.instagramclient.R;
 import com.epam.androidlab.instagramclient.fragments.UserInfoFragment;
-import com.epam.androidlab.instagramclient.presenters.UserInfoManager;
+import com.epam.androidlab.instagramclient.presenters.UserDataPresenter;
 
 public class ProfileActivity extends AppCompatActivity {
     // private static final String TAG_USER_INFO_FRAGMENT="user info fragment";
@@ -21,7 +21,7 @@ public class ProfileActivity extends AppCompatActivity {
         UserInfoFragment userInfoFragment =
                 (UserInfoFragment) getSupportFragmentManager()
                         .findFragmentById(R.id.user_info_fragment);
-        UserInfoManager userInfoManager = new UserInfoManager(userInfoFragment);
-        userInfoManager.onCreate();
+        UserDataPresenter presenter = new UserDataPresenter(userInfoFragment);
+        presenter.onCreate();
     }
 }

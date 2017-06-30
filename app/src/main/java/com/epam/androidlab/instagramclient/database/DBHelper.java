@@ -20,8 +20,17 @@ public class DBHelper extends SQLiteOpenHelper {
                     DBContract.UserTable.COLUMN_NAME_FOLLOWERS_COUNT + TEXT_TYPE + "," +
                     DBContract.UserTable.COLUMN_NAME_FOLLOWEDBY_COUNT + TEXT_TYPE +
                     " )";
+    //// TODO: 30.06.2017 call when access token is deleted
     private static final String SQL_DELETE_USER =
             "DROP TABLE IF EXISTS " + DBContract.UserTable.TABLE_NAME;
+    private static final String SQL_CREATE_MEDIA_TABLE =
+            "CREATE TABLE " + DBContract.MediaTable.TABLE_NAME + " (" +
+                    DBContract.MediaTable.COLUMN_NAME_ID + " INTEGER PRIMARY KEY," +
+                    DBContract.MediaTable.COLUMN_NAME_TYPE + TEXT_TYPE + "," +
+                    DBContract.MediaTable.COLUMN_NAME_TIME + TEXT_TYPE + "," +
+                    DBContract.MediaTable.COLUMN_NAME_THUMBNAIL_IMAGE + TEXT_TYPE + "," +
+                    DBContract.UserTable.COLUMN_NAME_MEDIA_COUNT + TEXT_TYPE +
+                    " )";
 
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -30,6 +39,7 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(SQL_CREATE_USER_TABLE);
+        db.execSQL(SQL_CREATE_MEDIA_TABLE);
     }
 
     @Override

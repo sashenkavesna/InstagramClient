@@ -1,4 +1,4 @@
-package com.epam.androidlab.instagramclient.managers;
+package com.epam.androidlab.instagramclient.handlers;
 
 
 import com.epam.androidlab.instagramclient.Extras;
