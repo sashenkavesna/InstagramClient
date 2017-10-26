@@ -2,14 +2,14 @@ package com.epam.androidlab.instagramclient.entity;
 
 
 public class Images {
-    private Thumbnail th;
+    private Thumbnail thumbnail;
 
     public Thumbnail getTh() {
-        return th;
+        return thumbnail;
     }
 
-    public void setTh(Thumbnail th) {
-        this.th = th;
+    public void setTh(Thumbnail thumbnail) {
+        this.thumbnail = thumbnail;
     }
 
 }

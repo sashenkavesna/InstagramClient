@@ -1,4 +1,4 @@
-package com.epam.androidlab.instagramclient.entity.responses;
+package com.epam.androidlab.instagramclient.responses;
 
 
 import com.epam.androidlab.instagramclient.entity.User;
@@ -13,7 +13,6 @@ public class UserResponse {
     }
 
     public User getUser() {
-
         return user;
     }
 }

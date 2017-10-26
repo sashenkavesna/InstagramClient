@@ -14,4 +14,5 @@ public class UserInfoReaderTask extends AsyncTask<Void, Void, User> {
         User user = repo.readUser();
         return user;
     }
+
 }

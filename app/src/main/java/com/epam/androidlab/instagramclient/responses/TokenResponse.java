@@ -1,4 +1,4 @@
-package com.epam.androidlab.instagramclient.entity.responses;
+package com.epam.androidlab.instagramclient.responses;
 
 
 import com.google.gson.annotations.SerializedName;

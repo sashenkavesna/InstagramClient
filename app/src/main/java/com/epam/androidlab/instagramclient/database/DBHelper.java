@@ -12,7 +12,8 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String TEXT_TYPE = " TEXT";
     private static final String SQL_CREATE_USER_TABLE =
             "CREATE TABLE " + DBContract.UserTable.TABLE_NAME + " (" +
-                    DBContract.UserTable.COLUMN_NAME_ID + " INTEGER PRIMARY KEY," +
+                    DBContract.UserTable._ID + " INTEGER PRIMARY KEY," +
+                    DBContract.UserTable.COLUMN_NAME_ID + TEXT_TYPE + "," +
                     DBContract.UserTable.COLUMN_NAME_USERNAME + TEXT_TYPE + "," +
                     DBContract.UserTable.COLUMN_NAME_FULLNAME + TEXT_TYPE + "," +
                     DBContract.UserTable.COLUMN_NAME_PROFILE_PICTURE + TEXT_TYPE + "," +
@@ -25,7 +26,8 @@ public class DBHelper extends SQLiteOpenHelper {
             "DROP TABLE IF EXISTS " + DBContract.UserTable.TABLE_NAME;
     private static final String SQL_CREATE_MEDIA_TABLE =
             "CREATE TABLE " + DBContract.MediaTable.TABLE_NAME + " (" +
-                    DBContract.MediaTable.COLUMN_NAME_ID + " INTEGER PRIMARY KEY," +
+                    DBContract.MediaTable._ID + " INTEGER PRIMARY KEY," +
+                    DBContract.MediaTable.COLUMN_NAME_ID + TEXT_TYPE + "," +
                     DBContract.MediaTable.COLUMN_NAME_TYPE + TEXT_TYPE + "," +
                     DBContract.MediaTable.COLUMN_NAME_TIME + TEXT_TYPE + "," +
                     DBContract.MediaTable.COLUMN_NAME_THUMBNAIL_IMAGE + TEXT_TYPE + "," +

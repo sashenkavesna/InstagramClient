@@ -3,8 +3,8 @@ package com.epam.androidlab.instagramclient.handlers;
 
 import com.epam.androidlab.instagramclient.Extras;
 import com.epam.androidlab.instagramclient.ServerConnector;
-import com.epam.androidlab.instagramclient.entity.responses.TokenResponse;
 import com.epam.androidlab.instagramclient.repository.TokenDataRepository;
+import com.epam.androidlab.instagramclient.responses.TokenResponse;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -28,15 +28,13 @@ public class TokenResponseHandler implements ResponseHandler, Callback<TokenResp
         call.enqueue(this);
     }
 
+
     @Override
     public void onResponse(Call<TokenResponse> call, Response<TokenResponse> response) {
         if (response.isSuccessful()) {
             TokenResponse resp = response.body();
-            //delete token repo?
-            // repo.insertAccessToken(resp.getAccessToken());
-            ServerConnector.getSessionManager().storeAccessToken(resp.getAccessToken());
-            UserResponseHandler respHandler = new UserResponseHandler();
-            respHandler.fetchResponse(resp.getAccessToken());
+            new TokenDataRepository().insertAccessToken(resp.getAccessToken());
+            //  ServerConnector.getSessionManager().storeAccessToken();
             //// TODO: 26.06.2017 handle error 
         }
     }

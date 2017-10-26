@@ -38,8 +38,7 @@ public class AuthorizationActivity extends AppCompatActivity {
                 String answer[] = url.split("=");
                 //// TODO: 20.06.2017 handle errors 
                 Intent intent = new Intent();
-                //// TODO: 20.06.2017 variable for key 
-                intent.putExtra("Code for access token", answer[1]);
+                intent.putExtra(Extras.TOKEN_CODE_KEY, answer[1]);
                 setResult(RESULT_OK, intent);
                 context.finish();
             }

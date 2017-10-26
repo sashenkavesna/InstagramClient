@@ -1,11 +1,11 @@
 package com.epam.androidlab.instagramclient;
 
 
-import com.epam.androidlab.instagramclient.entity.Media;
 import com.epam.androidlab.instagramclient.entity.User;
-import com.epam.androidlab.instagramclient.entity.responses.RelationshipResponse;
-import com.epam.androidlab.instagramclient.entity.responses.TokenResponse;
-import com.epam.androidlab.instagramclient.entity.responses.UserResponse;
+import com.epam.androidlab.instagramclient.responses.MediaResponse;
+import com.epam.androidlab.instagramclient.responses.RelationshipResponse;
+import com.epam.androidlab.instagramclient.responses.TokenResponse;
+import com.epam.androidlab.instagramclient.responses.UserResponse;
 
 import java.util.List;
 
@@ -31,11 +31,8 @@ public interface InstaClientAPI {
     );
 
     @GET("v1/users/self/media/recent")
-    Call<Media> getCurrentUsersRecentMedia(
-            @Query("access_token") String accessToken,
-            @Query("max_id") int maxId,
-            @Query("min_id") int minId,
-            @Query("count") int countOfMedia
+    Call<MediaResponse> getCurrentUsersRecentMedia(
+            @Query("access_token") String accessToken
     );
 
     @GET("v1/users/self/")

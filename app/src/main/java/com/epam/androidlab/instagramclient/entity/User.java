@@ -14,7 +14,7 @@ public class User {
     @SerializedName("profile_picture")
     private String profilePicture;
 
-    private int id;
+    private String id;
 
     @SerializedName("counts")
     private Counts counts;
@@ -23,7 +23,7 @@ public class User {
         return fullName;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
@@ -47,7 +47,7 @@ public class User {
         this.fullName = fullName;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

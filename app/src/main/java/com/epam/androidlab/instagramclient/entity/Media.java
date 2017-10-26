@@ -1,9 +1,11 @@
 package com.epam.androidlab.instagramclient.entity;
 
+import com.google.gson.annotations.SerializedName;
 
 public class Media {
-    private int id;
+    private String id;
     private String type;
+    @SerializedName("created_time")
     private String time;
     private Images images;
 
@@ -31,11 +33,11 @@ public class Media {
         this.type = type;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
     // private HashMap<User,User.Position> userInPhoto;

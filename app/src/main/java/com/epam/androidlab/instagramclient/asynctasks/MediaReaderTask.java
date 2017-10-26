@@ -6,11 +6,13 @@ import android.os.AsyncTask;
 import com.epam.androidlab.instagramclient.entity.Media;
 import com.epam.androidlab.instagramclient.repository.MediaRepository;
 
-public class MediaReaderTask extends AsyncTask<Void, Void, Media> {
+import java.util.ArrayList;
+
+public class MediaReaderTask extends AsyncTask<Void, Void, ArrayList<Media>> {
     @Override
-    protected Media doInBackground(Void... params) {
+    protected ArrayList<Media> doInBackground(Void... params) {
         MediaRepository repo = new MediaRepository();
-        Media media = repo.readMedia();
+        ArrayList<Media> media = repo.readMedia();
         return media;
     }
 }
